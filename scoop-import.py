@@ -1,10 +1,11 @@
 import concurrent.futures
 import json
 import os
+import sys
 
 import tqdm
 
-scoop_json_path = "./scoop.json"
+scoop_json_path = sys.argv[1]
 
 with open(scoop_json_path, encoding="utf-16", newline="\n") as f:
     data = json.load(f)
@@ -28,4 +29,4 @@ with tqdm.tqdm(total=len(commands)) as pbar:
         for result in executor.map(run_cmd, commands):
             pbar.update()
 
-print("All scoop apps installed")
+print("Done")
