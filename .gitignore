@@ -1,0 +1,5 @@
+scoop.json
+build/*
+dist/*
+scoop-gui.spec
+.venv/*
