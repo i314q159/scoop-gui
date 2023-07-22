@@ -1,5 +1,6 @@
 scoop.json
 build/*
 dist/*
-scoop-gui.spec
+*.spec
 .venv/*
+.idea/

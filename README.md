@@ -1,1 +1,1 @@
-# scoop-gui
+# scoop-import
