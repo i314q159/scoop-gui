@@ -7,7 +7,7 @@ import tqdm
 
 scoop_json_path = sys.argv[1]
 
-cpu_count = os.cpu_count() or 4 
+cpu_count = os.cpu_count() or 4
 max_workers = cpu_count * 3
 
 with open(scoop_json_path, encoding="utf-16", newline="\n") as f:
