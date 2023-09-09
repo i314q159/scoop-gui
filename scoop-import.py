@@ -3,8 +3,6 @@ import json
 import os
 import sys
 
-import tqdm
-
 scoop_json_path = sys.argv[1]
 
 cpu_count = os.cpu_count() or 4
@@ -27,9 +25,7 @@ def run_cmd(cmd):
     os.system(cmd)
 
 
-with tqdm.tqdm(total=len(commands)) as pbar:
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        for result in executor.map(run_cmd, commands):
-            pbar.update()
+with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+    executor.map(run_cmd, commands)
 
 print("Done")
