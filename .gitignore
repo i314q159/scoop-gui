@@ -1,6 +1,3 @@
 scoop.json
-build/*
-dist/*
-*.spec
 .venv/*
 .idea/
