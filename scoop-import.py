@@ -1,11 +1,10 @@
 import concurrent.futures
 import json
 import os
-import sys
+import time
 
-scoop_json_path = sys.argv[1]
-
-cpu_count = os.cpu_count() or 9
+scoop_json_path = "./scoop.json"
+cpu_count = os.cpu_count() or 8
 max_workers = cpu_count * 3
 
 with open(scoop_json_path, encoding="utf-16", newline="\n") as f:
@@ -25,7 +24,8 @@ def run_cmd(cmd):
     os.system(cmd)
 
 
+t1 = time.time()
 with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
     executor.map(run_cmd, commands)
-
-print("Done")
+t2 = time.time()
+print(f"{(t2 - t1) * 1000:.2f} ms")
