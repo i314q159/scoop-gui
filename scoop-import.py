@@ -1,7 +1,6 @@
 import concurrent.futures
 import json
 import os
-import time
 
 
 def run_cmd(command):
@@ -27,8 +26,5 @@ if __name__ == '__main__':
 
     os.system("scoop update")
 
-    t1 = time.time()
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         executor.map(run_cmd, commands)
-    t2 = time.time()
-    print(f"{(t2 - t1) * 1000:.2f} ms")
